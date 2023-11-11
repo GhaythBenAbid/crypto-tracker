@@ -2,9 +2,11 @@
 
 **Track Your Cryptocurrency Investments with Ease!**
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/640px-Angular_full_color_logo.svg.png" alt="Crypto Tracker Logo" width="200" height="200">
+<div style="display: flex; justify-content: space-around;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/640px-Angular_full_color_logo.svg.png" alt="Crypto Tracker Logo" width="200" height="200">
 
-<img src="https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png" alt="CoinGecko Logo" width="200" height="200">
+  <img src="https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png" alt="CoinGecko Logo" width="200" height="200">
+</div>
 
 ## Overview
 
