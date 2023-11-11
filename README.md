@@ -1,27 +1,31 @@
-# CryptoTracker
+# Crypto Tracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+**Track Your Cryptocurrency Investments with Ease!**
 
-## Development server
+## Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Crypto Tracker is a web application designed to help you monitor and manage your cryptocurrency investments effortlessly. Whether you're a seasoned investor or just starting in the world of cryptocurrencies, our platform provides real-time data and insightful charts to keep you informed.
 
-## Code scaffolding
+## Key Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Live Data Updates:** Get real-time updates on cryptocurrency prices, market capitalization, and 24-hour trading volumes.
 
-## Build
+- **User-Friendly Interface:** Our intuitive interface makes it easy to view and understand the performance of your crypto portfolio.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Search and Filter:** Quickly find the cryptocurrencies you're interested in with our powerful search and filtering capabilities.
 
-## Running unit tests
+- **Detailed Information:** Access detailed information about each cryptocurrency, including current price, market cap, and 24-hour trading volume.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Graphical Trends:** Visualize the progress of your favorite cryptocurrencies with easy-to-read charts.
 
-## Running end-to-end tests
+## Why Choose Crypto Tracker?
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **Simplicity:** User-friendly design for a seamless experience, even for beginners.
 
-## Further help
+- **Up-to-Date Data:** Stay ahead with live data updates from reliable sources.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **Comprehensive Information:** Dive deep into the details of each cryptocurrency to make informed decisions.
+
+- **Responsive Design:** Access your portfolio from any device, anytime, anywhere.
+
+Start tracking your crypto investments today with Crypto Tracker - Where Your Investments Meet Simplicity!
