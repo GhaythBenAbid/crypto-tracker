@@ -2,7 +2,8 @@
 
 **Track Your Cryptocurrency Investments with Ease!**
 
-![Crypto Tracker Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/640px-Angular_full_color_logo.svg.png)
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/640px-Angular_full_color_logo.svg.png" alt="Crypto Tracker Logo" width="200" height="200">
+
 
 ## Overview
 
