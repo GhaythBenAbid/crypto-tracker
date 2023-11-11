@@ -2,6 +2,8 @@
 
 **Track Your Cryptocurrency Investments with Ease!**
 
+![Crypto Tracker Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/640px-Angular_full_color_logo.svg.png)
+
 ## Overview
 
 Crypto Tracker is a web application designed to help you monitor and manage your cryptocurrency investments effortlessly. Whether you're a seasoned investor or just starting in the world of cryptocurrencies, our platform provides real-time data and insightful charts to keep you informed.
