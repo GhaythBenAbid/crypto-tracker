@@ -7,8 +7,8 @@ import { Observable , map } from 'rxjs';
   providedIn: 'root',
 })
 export class CryptoService {
-  private apiUrl = 'https://api.coingecko.com/api/v3/coins/markets';
-  private marketChartBaseUrl = 'https://api.coingecko.com/api/v3/coins';
+  private apiUrl = 'http://localhost:3000/api/cryptos';
+  private marketChartBaseUrl = 'http://localhost:3000/charts';
 
 
   constructor(private http: HttpClient) {}
@@ -47,7 +47,7 @@ export class CryptoService {
       interval,
     };
 
-    const marketChartUrl = `${this.marketChartBaseUrl}/${id}/market_chart`;
+    const marketChartUrl = `${this.marketChartBaseUrl}/${id}`;
 
     return this.http.get<any>(marketChartUrl, { params });
   }
