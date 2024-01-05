@@ -1,0 +1,21 @@
+version: '3'
+services:
+  nodejs-app:
+    image: node:14
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    ports:
+      - "3000:3000"
+    command: npm start
+
+  angular-app:
+    image: node:14
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "4200:4200"
+    command: npm start
+    depends_on:
+      - nodejs-app
