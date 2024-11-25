@@ -18,7 +18,6 @@ app.get('/', (req, res) => {
 
 
 app.use('/api', require('./routes/api'));
-app.use('/charts', require('./routes/charts'));
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

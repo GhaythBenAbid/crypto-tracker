@@ -1,0 +1,27 @@
+/* Add any specific styles here if needed */
+:host {
+  display: block;
+}
+
+/* Chart container styles */
+canvas {
+  max-height: 400px;
+}
+
+/* Custom scrollbar for select dropdown */
+select::-webkit-scrollbar {
+  width: 8px;
+}
+
+select::-webkit-scrollbar-track {
+  background: #262626;
+}
+
+select::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 4px;
+}
+
+select::-webkit-scrollbar-thumb:hover {
+  background: #525252;
+} 

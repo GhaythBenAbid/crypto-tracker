@@ -42,5 +42,5 @@ export class CryptoListComponent implements OnInit {
       crypto.symbol.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
-  
+
 }

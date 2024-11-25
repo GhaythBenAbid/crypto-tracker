@@ -1,50 +1,181 @@
-<section class="bg-repeat w-full h-full text-primary-100 heropattern-polkadots-blue-50/50">
-    <nav x-data="{ isOpen: false }" class="container p-6 mx-auto lg:flex lg:justify-between lg:items-center">
+<section class="min-h-screen bg-neutral-900 text-gray-100 relative overflow-hidden">
+    <!-- Subtle neon background effect -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(76,29,149,0.05),rgba(15,23,42,0))] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(234,179,8,0.07),rgba(15,23,42,0))] pointer-events-none"></div>
+
+    <nav class="container p-6 mx-auto lg:flex lg:justify-between lg:items-center relative z-10">
         <div class="flex items-center justify-between">
             <a href="#">
-                <h1
-                class="text-3xl font-semibold text-blue-900 underline  lg:text-4xl"
-                >Cryptox</h1>
+                <h1 class="text-3xl font-bold text-yellow-500 lg:text-4xl" style="text-shadow: 0 0 5px rgba(234,179,8,0.3);">
+                    Cryptox
+                </h1>
             </a>
 
             <!-- Mobile menu button -->
             <div class="flex lg:hidden">
-                <button type="button" class="text-gray-500  hover:text-gray-600  focus:outline-none focus:text-gray-600 " aria-label="toggle menu">
-                    <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <button (click)="toggleMenu()" type="button" class="text-gray-300 hover:text-yellow-500 focus:outline-none" aria-label="toggle menu">
+                    <svg *ngIf="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
                     </svg>
-
-                    <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-        <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white shadow-md lg:bg-transparent  lg:shadow-none  lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
+        <!-- Mobile Menu -->
+        <div [@slideInOut]="isMenuOpen ? 'open' : 'closed'"
+             class="absolute inset-x-0 top-20 z-20 w-full px-6 py-4 bg-neutral-800 lg:bg-transparent lg:shadow-none lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-y-0 lg:flex lg:items-center">
             <div class="flex flex-col space-y-4 lg:mt-0 lg:flex-row lg:-px-8 lg:space-y-0">
-                <a class="text-gray-700 transition-colors duration-300 transform lg:mx-8   hover:text-blue-500" href="#">Home</a>
-                <a class="text-gray-700 transition-colors duration-300 transform lg:mx-8   hover:text-blue-500" href="/cryptos">Browse</a>
+                <a class="text-gray-300 transition-colors duration-300 transform lg:mx-8 hover:text-yellow-500" href="#">Home</a>
+                <a class="text-gray-300 transition-colors duration-300 transform lg:mx-8 hover:text-yellow-500" href="/cryptos">Browse</a>
             </div>
-
         </div>
     </nav>
 
-    <div class="container px-6 py-16 mx-auto text-center">
-        <div class="max-w-lg mx-auto">
-            <h1 class="text-3xl font-semibold text-gray-800  lg:text-4xl">Welcome to Our Crypto Tracking Platform</h1>
-            <p class="mt-6 text-gray-500 ">Explore the world of cryptocurrencies with our powerful tracking platform. Real-time data, intuitive charts, and insightful analytics help you stay on top of your crypto investments.</p>
-<a href="/cryptos">
+    <div class="container px-6 py-16 mx-auto">
+        <!-- Hero Section -->
+        <div class="grid lg:grid-cols-2 gap-8 items-center">
+            <div class="text-left space-y-6">
+                <h1 class="text-4xl font-bold text-yellow-500 lg:text-5xl" style="text-shadow: 0 0 5px rgba(234,179,8,0.2);">
+                    Track Crypto Like Never Before
+                </h1>
+                <p class="text-xl text-gray-300">
+                    Experience real-time cryptocurrency tracking with advanced analytics and powerful insights.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-gray-300">Real-time price updates</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-gray-300">Advanced market analytics</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-gray-300">Portfolio tracking</span>
+                    </div>
+                </div>
+                <a href="/cryptos">
+                    <button class="px-8 py-3 mt-8 text-lg font-medium text-gray-900 bg-yellow-500 rounded-lg hover:bg-yellow-400 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-900">
+                        Start Trading
+                    </button>
+                </a>
+            </div>
 
-    <button class="px-5 py-2 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-blue-900 rounded-lg hover:bg-blue-900 lg:mx-0 lg:w-auto focus:outline-none">
-        Browse Cryptos
-    </button>
-</a>
+            <div class="relative">
+                <div class="absolute inset-0 bg-yellow-500 rounded-xl opacity-5 blur-lg"></div>
+                <img class="relative rounded-xl shadow-lg" src="../../assets/notif.png" alt="Cryptocurrency trading platform">
+            </div>
         </div>
 
-        <div class="flex justify-center mt-10">
-            <img class="object-cover w-full h-96 rounded-xl lg:w-4/5" src="https://images.unsplash.com/photo-1621504450181-5d356f61d307?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <!-- Trending Cryptocurrencies -->
+        <div class="mt-20">
+            <h2 class="text-2xl font-bold text-yellow-500 mb-6">Trending Cryptocurrencies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div *ngFor="let crypto of trendingCryptos" 
+                     class="p-4 bg-neutral-800 rounded-xl border border-neutral-700 hover:border-yellow-500/50 transition-all duration-300 cursor-pointer">
+                    <div class="flex items-center space-x-3">
+                        <img [src]="crypto.image" [alt]="crypto.name" class="w-8 h-8">
+                        <div>
+                            <h3 class="font-semibold text-gray-100">{{crypto.name}}</h3>
+                            <p class="text-sm text-gray-400">{{crypto.symbol}}</p>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <p class="text-lg font-bold">${{crypto.price}}</p>
+                        <p [ngClass]="crypto.priceChange >= 0 ? 'text-green-400' : 'text-red-400'">
+                            {{crypto.priceChange}}%
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Market Stats Section (Enhanced) -->
+        <div class="mt-20">
+            <h2 class="text-2xl font-bold text-yellow-500 mb-6">Market Overview</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-neutral-800 rounded-xl border border-neutral-700 hover:border-yellow-500/50 transition-colors duration-300">
+                    <h3 class="text-xl font-semibold text-yellow-500/90 mb-2">Market Cap</h3>
+                    <p class="text-3xl font-bold text-gray-100">$2.1T</p>
+                    <p class="text-green-400/90">+5.3%</p>
+                </div>
+                <div class="p-6 bg-neutral-800 rounded-xl border border-neutral-700 hover:border-yellow-500/50 transition-colors duration-300">
+                    <h3 class="text-xl font-semibold text-yellow-500/90 mb-2">24h Volume</h3>
+                    <p class="text-3xl font-bold text-gray-100">$84.5B</p>
+                    <p class="text-green-400/90">+12.8%</p>
+                </div>
+                <div class="p-6 bg-neutral-800 rounded-xl border border-neutral-700 hover:border-yellow-500/50 transition-colors duration-300">
+                    <h3 class="text-xl font-semibold text-yellow-500/90 mb-2">BTC Dominance</h3>
+                    <p class="text-3xl font-bold text-gray-100">42.3%</p>
+                    <p class="text-red-400/90">-1.2%</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="mt-20">
+            <h2 class="text-2xl font-bold text-yellow-500 mb-10 text-center">Why Choose Cryptox</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-6 bg-neutral-800 rounded-xl border border-neutral-700 hover:border-yellow-500/50 transition-all duration-300">
+                    <div class="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-yellow-500/90 mb-2">Real-Time Analytics</h3>
+                    <p class="text-gray-400">Get instant access to market data, price movements, and trading volumes across multiple exchanges.</p>
+                </div>
+
+                <div class="p-6 bg-neutral-800 rounded-xl border border-neutral-700 hover:border-yellow-500/50 transition-all duration-300">
+                    <div class="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-yellow-500/90 mb-2">Secure Trading</h3>
+                    <p class="text-gray-400">Advanced security measures to protect your assets and transactions with multi-factor authentication.</p>
+                </div>
+
+                <div class="p-6 bg-neutral-800 rounded-xl border border-neutral-700 hover:border-yellow-500/50 transition-all duration-300">
+                    <div class="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-yellow-500/90 mb-2">Portfolio Management</h3>
+                    <p class="text-gray-400">Track and manage your crypto portfolio with advanced tools and detailed performance analytics.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="mt-20 text-center">
+            <div class="max-w-2xl mx-auto p-8 bg-neutral-800 rounded-xl border border-neutral-700">
+                <h2 class="text-2xl font-bold text-yellow-500 mb-4">Stay Updated</h2>
+                <p class="text-gray-400 mb-6">Get the latest crypto news and updates delivered directly to your inbox.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <input 
+                        type="email" 
+                        [(ngModel)]="emailSubscription"
+                        placeholder="Enter your email" 
+                        class="px-4 py-2 bg-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    <button 
+                        (click)="subscribeNewsletter()"
+                        class="px-6 py-2 bg-yellow-500 text-neutral-900 rounded-lg hover:bg-yellow-400 transition-colors duration-300">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </section>
