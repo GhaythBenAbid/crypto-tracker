@@ -1,0 +1,156 @@
+CRYPTOCURRENCY API DOCUMENTATION
+==============================
+
+OVERVIEW
+--------
+This API provides cryptocurrency data through both GraphQL and REST endpoints. The GraphQL interface allows for flexible querying of cryptocurrency information.
+
+GETTING STARTED
+--------------
+1. Install dependencies: npm install
+2. Start the server: npm run dev
+3. Access GraphQL Playground: http://localhost:3000/graphql
+
+AVAILABLE QUERIES
+---------------
+
+1. GET ALL CRYPTOCURRENCIES
+   Description: Retrieves a list of all available cryptocurrencies with basic information.
+
+   Query:
+   ------
+   query GetAllCryptos {
+     cryptos {
+       id
+       symbol
+       name
+       current_price
+       price_change_percentage_24h
+       market_cap
+       image
+     }
+   }
+
+   Response Format:
+   --------------
+   {
+     "data": {
+       "cryptos": [
+         {
+           "id": "btc",
+           "symbol": "BTC",
+           "name": "Bitcoin",
+           "current_price": "42000.00",
+           "price_change_percentage_24h": 2.5,
+           "market_cap": 800000000000,
+           "image": "https://cdn.jsdelivr.net/gh/vadimmalykhin/binance-icons/crypto/btc.svg"
+         }
+       ]
+     }
+   }
+
+2. GET SPECIFIC CRYPTOCURRENCY
+   Description: Retrieves detailed information about a specific cryptocurrency.
+
+   Query:
+   ------
+   query GetSpecificCrypto {
+     crypto(symbol: "BTC") {
+       id
+       symbol
+       name
+       image {
+         thumb
+         small
+         large
+       }
+       market_data {
+         current_price {
+           usd
+         }
+         market_cap {
+           usd
+         }
+         total_volume {
+           usd
+         }
+         price_change_24h
+         price_change_percentage_24h
+         circulating_supply
+         last_updated
+       }
+       additional_data {
+         trading_status
+         base_asset_precision
+         quote_asset_precision
+       }
+     }
+   }
+
+SCHEMA TYPES
+-----------
+
+SimpleCrypto:
+- id: String!
+- symbol: String!
+- name: String!
+- current_price: String!
+- market_cap: Float!
+- total_volume: Float!
+- price_change_24h: Float!
+- price_change_percentage_24h: Float!
+- circulating_supply: Float!
+- image: String!
+- last_updated: String!
+
+DetailedCrypto:
+- id: String!
+- symbol: String!
+- name: String!
+- image: Image!
+- market_data: MarketData!
+- additional_data: AdditionalData!
+
+MarketData:
+- current_price: PriceData!
+- market_cap: PriceData!
+- total_volume: PriceData!
+- high_24h: PriceData!
+- low_24h: PriceData!
+- price_change_24h: Float!
+- price_change_percentage_24h: Float!
+- circulating_supply: Float!
+- total_supply: Float
+- max_supply: Float
+- last_updated: String!
+
+NOTES
+-----
+- Data is cached for 5 minutes to optimize performance
+- Returns top 100 cryptocurrencies by market cap
+- All prices are in USD
+- Rate limiting is implemented to prevent API abuse
+- Data is sourced from Binance API
+
+ERROR HANDLING
+-------------
+The API returns standard GraphQL errors with appropriate status codes and messages.
+
+Example error response:
+{
+  "errors": [
+    {
+      "message": "Cryptocurrency not found",
+      "locations": [{"line": 2, "column": 3}],
+      "path": ["crypto"]
+    }
+  ]
+}
+
+DEVELOPMENT STACK
+---------------
+- Node.js environment
+- Express.js server
+- GraphQL with express-graphql
+- Node-cache for caching
+- Axios for API requests 

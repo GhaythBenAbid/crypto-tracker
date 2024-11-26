@@ -30,8 +30,7 @@ const formatCryptoData = (ticker, symbolInfo) => {
     };
 };
 
-// Get all cryptocurrencies
-router.get('/cryptos', async (req, res) => {
+const getCryptos = async (req, res) => {
     try {
         const cacheKey = 'all_cryptos';
         const cachedData = cache.get(cacheKey);
@@ -77,10 +76,9 @@ router.get('/cryptos', async (req, res) => {
             error: error.message 
         });
     }
-});
+};
 
-// Get specific crypto by ID
-router.get('/crypto/:symbol', async (req, res) => {
+const getCrypto = async (req, res) => {
     try {
         const symbol = (req.params.symbol + 'USDT').toUpperCase();
         const cacheKey = `crypto_${symbol}`;
@@ -162,7 +160,7 @@ router.get('/crypto/:symbol', async (req, res) => {
             error: error.message 
         });
     }
-});
+};
 
 // Get coin price history
 router.get('/crypto/:symbol/history', async (req, res) => {
@@ -380,4 +378,8 @@ router.get('/compare/periods', (req, res) => {
     res.json(periods);
 });
 
-module.exports = router;
+module.exports = {
+    router,
+    getCryptos,
+    getCrypto
+};
