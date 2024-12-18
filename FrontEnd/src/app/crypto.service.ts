@@ -1,16 +1,16 @@
-// src/app/crypto.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, tap, map } from 'rxjs/operators';
+import { map, tap, catchError } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 import { CacheService } from './services/cache.service';
-import { CryptoDetail, CryptoListItem } from './interfaces/crypto.interface';
+import { CryptoListItem, CryptoDetail } from './interfaces/crypto.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CryptoService {
-  private baseUrl = 'http://localhost:3000/api';
+  private baseUrl = environment.apiUrl;
 
   constructor(
     private http: HttpClient,
